@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Hub - Powerful AI Solutions for Your Needs</title>
+    <meta name="description" content="Discover our collection of powerful AI tools including image processing, percentage calculators, and data analysis solutions.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --primary-dark: #564fcc;
+            --secondary: #4d44db;
+            --accent: #7b74ff;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7ff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a i {
+            margin-right: 8px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e0e5ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(108, 99, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(108, 99, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            line-height: 1.2;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            padding: 80px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        /* Tools Section */
+        .tools {
+            padding: 80px 0;
+            background-color: #f8f9fe;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-image {
+            height: 180px;
+            background-color: #f0f2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        .tool-card:hover .tool-image img {
+            transform: scale(1.05);
+        }
+        
+        .tool-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .tool-content {
+            padding: 20px;
+        }
+        
+        .tool-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .tool-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .tool-stats {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .tool-stat {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .tool-stat i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        /* Percentage Tool Showcase */
+        .percentage-showcase {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .percentage-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .percentage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .percentage-header h3 {
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+        
+        .percentage-visual {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .percentage-bar {
+            width: 60px;
+            background-color: var(--light-gray);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            margin: 0 10px;
+            transition: height 1s ease;
+        }
+        
+        .percentage-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--gradient);
+            border-radius: 10px 10px 0 0;
+            transition: height 1s ease;
+        }
+        
+        .percentage-value {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .percentage-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .percentage-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+        }
+        
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #f8f9fe;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .cta p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column p {
+            color: #adb5bd;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                box-shadow: var(--box-shadow);
+                transition: var(--transition);
+                z-index: 999;
+                padding: 20px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            nav ul li a {
+                padding: 10px;
+                border-radius: var(--border-radius);
+            }
+            
+            nav ul li a:hover {
+                background-color: var(--light);
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-robot"></i>
+                <span>AI Tools Hub</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Powerful AI Tools at Your Fingertips</h1>
+            <p>Discover our collection of advanced AI tools designed to simplify your work and boost productivity. From image processing to data analysis, we've got you covered.</p>
+            <div class="hero-buttons">
+                <a href="#tools" class="btn btn-primary"><i class="fas fa-rocket"></i> Explore Tools</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-play-circle"></i> Watch Demo</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our AI Tools</h2>
+                <p>Our platform offers cutting-edge solutions with user-friendly interfaces and powerful capabilities</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Process images and calculations in seconds with our optimized AI algorithms</p>
+                    <a href="#" class="btn btn-white">Learn More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Precision Tools</h3>
+                    <p>Accurate percentage calculations and image processing with reliable results</p>
+                    <a href="#" class="btn btn-white">Learn More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Your data remains confidential with our secure processing methods</p>
+                    <a href="#" class="btn btn-white">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="tools" id="tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Featured AI Tools</h2>
+                <p>Explore our collection of powerful tools designed to meet your needs</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="https://via.placeholder.com/400x300?text=Image+Enhancer" alt="Image Enhancer">
+                        <span class="tool-badge">Popular</span>
+                    </div>
+                    <div class="tool-content">
+                        <h3>AI Image Enhancer</h3>
+                        <p>Enhance and upscale your images with our advanced neural networks</p>
+                        <div class="tool-stats">
+                            <div class="tool-stat">
+                                <i class="fas fa-clock"></i> 2s processing
+                            </div>
+                            <div class="tool-stat">
+                                <i class="fas fa-thumbs-up"></i> 98% accuracy
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Try Now</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="https://via.placeholder.com/400x300?text=Percentage+Calculator" alt="Percentage Calculator">
+                    </div>
+                    <div class="tool-content">
+                        <h3>Smart Percentage Calculator</h3>
+                        <p>Calculate percentages, increases, and ratios with precision</p>
+                        <div class="tool-stats">
+                            <div class="tool-stat">
+                                <i class="fas fa-clock"></i> Instant
+                            </div>
+                            <div class="tool-stat">
+                                <i class="fas fa-thumbs-up"></i> 100% accuracy
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Try Now</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="https://via.placeholder.com/400x300?text=Background+Remover" alt="Background Remover">
+                        <span class="tool-badge">New</span>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Background Remover</h3>
+                        <p>Automatically remove backgrounds from images in seconds</p>
+                        <div class="tool-stats">
+                            <div class="tool-stat">
+                                <i class="fas fa-clock"></i> 5s processing
+                            </div>
+                            <div class="tool-stat">
+                                <i class="fas fa-thumbs-up"></i> 95% accuracy
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Try Now</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="https://via.placeholder.com/400x300?text=Data+Analyzer" alt="Data Analyzer">
+                    </div>
+                    <div class="tool-content">
+                        <h3>AI Data Analyzer</h3>
+                        <p>Analyze and visualize your data with intelligent percentage breakdowns</p>
+                        <div class="tool-stats">
+                            <div class="tool-stat">
+                                <i class="fas fa-clock"></i> 10s processing
+                            </div>
+                            <div class="tool-stat">
+                                <i class="fas fa-thumbs-up"></i> 97% accuracy
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Try Now</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="https://via.placeholder.com/400x300?text=Color+Extractor" alt="Color Extractor">
+                    </div>
+                    <div class="tool-content">
+                        <h3>Color Palette Generator</h3>
+                        <p>Extract color palettes and percentage distributions from images</p>
+                        <div class="tool-stats">
+                            <div class="tool-stat">
+                                <i class="fas fa-clock"></i> 3s processing
+                            </div>
+                            <div class="tool-stat">
+                                <i class="fas fa-thumbs-up"></i> 96% accuracy
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Try Now</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="https://via.placeholder.com/400x300?text=Ratio+Calculator" alt="Ratio Calculator">
+                    </div>
+                    <div class="tool-content">
+                        <h3>Advanced Ratio Calculator</h3>
+                        <p>Calculate and convert ratios with percentage representations</p>
+                        <div class="tool-stats">
+                            <div class="tool-stat">
+                                <i class="fas fa-clock"></i> Instant
+                            </div>
+                            <div class="tool-stat">
+                                <i class="fas fa-thumbs-up"></i> 100% accuracy
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Try Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="percentage-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Percentage Tool in Action</h2>
+                <p style="color: rgba(255, 255, 255, 0.8);">See how our advanced percentage calculator works</p>
+            </div>
+            
+            <div class="percentage-container">
+                <div class="percentage-header">
+                    <h3>Data Distribution Analysis</h3>
+                    <div class="range-value" style="font-weight: bold; color: var(--primary);">Total: 100%</div>
+                </div>
+                
+                <div class="percentage-visual">
+                    <div class="percentage-bar">
+                        <div class="percentage-fill" id="fill1" style="height: 70%;"></div>
+                        <div class="percentage-value" id="value1">70%</div>
+                        <div class="percentage-label">Category A</div>
+                    </div>
+                    
+                    <div class="percentage-bar">
+                        <div class="percentage-fill" id="fill2" style="height: 45%;"></div>
+                        <div class="percentage-value" id="value2">45%</div>
+                        <div class="percentage-label">Category B</div>
+                    </div>
+                    
+                    <div class="percentage-bar">
+                        <div class="percentage-fill" id="fill3" style="height: 85%;"></div>
+                        <div class="percentage-value" id="value3">85%</div>
+                        <div class="percentage-label">Category C</div>
+                    </div>
+                    
+                    <div class="percentage-bar">
+                        <div class="percentage-fill" id="fill4" style="height: 30%;"></div>
+                        <div class="percentage-value" id="value4">30%</div>
+                        <div class="percentage-label">Category D</div>
+                    </div>
+                </div>
+                
+                <div class="percentage-controls">
+                    <div class="control-group">
+                        <label for="range1">Category A</label>
+                        <input type="range" id="range1" min="0" max="100" value="70">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="range2">Category B</label>
+                        <input type="range" id="range2" min="0" max="100" value="45">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="range3">Category C</label>
+                        <input type="range" id="range3" min="0" max="100" value="85">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="range4">Category D</label>
+                        <input type="range" id="range4" min="0" max="100" value="30">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Boost Your Productivity?</h2>
+            <p>Join thousands of users who are already benefiting from our AI tools</p>
+            <a href="#" class="btn btn-primary" style="padding: 15px 30px; font-size: 1.1rem;">
+                <i class="fas fa-user-plus"></i> Get Started for Free
+            </a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AI Tools Hub</h3>
+                    <p>Providing powerful AI solutions to simplify your work and enhance productivity.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tools</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Image Enhancer</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Percentage Calculator</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Background Remover</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Data Analyzer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> API Reference</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> AI Tools Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Current year for copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Percentage tool interactive demo
+        const ranges = ['range1', 'range2', 'range3', 'range4'];
+        const fills = ['fill1', 'fill2', 'fill3', 'fill4'];
+        const values = ['value1', 'value2', 'value3', 'value4'];
+        
+        ranges.forEach((rangeId, index) => {
+            const range = document.getElementById(rangeId);
+            const fill = document.getElementById(fills[index]);
+            const value = document.getElementById(values[index]);
+            
+            range.addEventListener('input', () => {
+                const percentage = range.value;
+                fill.style.height = `${percentage}%`;
+                value.textContent = `${percentage}%`;
+                
+                // Adjust other ranges to maintain total <= 100%
+                adjustOtherRanges(index, percentage);
+            });
+        });
+        
+        function adjustOtherRanges(changedIndex, newValue) {
+            // In a real implementation, you would adjust other ranges
+            // to maintain a total of 100% or show warnings
+            // This is simplified for the demo
+        }
+        
+        // Animate percentage bars on scroll
+        window.addEventListener('scroll', () => {
+            const percentageSection = document.querySelector('.percentage-showcase');
+            const sectionPosition = percentageSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (sectionPosition < screenPosition) {
+                fills.forEach(fill => {
+                    document.getElementById(fill).style.transition = 'height 1s ease';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
